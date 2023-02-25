@@ -1,0 +1,16 @@
+{
+  "name": "@geffencode/linqscript",
+  "version": "1.0.1",
+  "description": "A basic implementation of LINQ methods for Typescript.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "author": "geffen",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.14.0",
+    "typescript": "^4.9.5"
+  }
+}
