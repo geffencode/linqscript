@@ -99,7 +99,7 @@ class LINQArray<T> extends Array<T> {
      * @returns A new LINQArray containing only the distinct elements of the original array.
      */
     Distinct(): LINQArray<T> {
-        return [...new Set(this)] as LINQArray<T>
+        return AsLinq([...new Set(this)]);
     }
 
     /**
@@ -119,7 +119,7 @@ class LINQArray<T> extends Array<T> {
      * @returns A new LINQArray containing the sorted elements.
      */
     OrderBy<K>(predicate: (item: T) => K): LINQArray<T> {
-        return this.sort((a, b) => predicate(a) > predicate(b) ? -1 : 1 );
+        return this.sort((a, b) => predicate(a) > predicate(b) ? 1 : -1 );
     }
 
     /**
@@ -129,7 +129,7 @@ class LINQArray<T> extends Array<T> {
      * @returns A new LINQArray instance with the sorted elements.
      */
     OrderByDescending<K>(predicate: (item: T) => K): LINQArray<T> {
-        return this.sort((a, b) => predicate(a) > predicate(b) ? 1 : -1 );
+        return this.sort((a, b) => predicate(a) > predicate(b) ? -1 : 1 );
     }
 
     /**
@@ -157,6 +157,14 @@ class LINQArray<T> extends Array<T> {
      */
     Skip(i: number): LINQArray<T> {
         return this.slice(i, this.length) as LINQArray<T>;
+    }
+
+    /**
+     * Retrieves the length of the LINQArray
+     * @returns The number of elements of the collection.
+     */
+    Count(): number {
+        return this.length;
     }
 
     /**
